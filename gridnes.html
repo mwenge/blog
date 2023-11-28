@@ -153,7 +153,7 @@ GRIDRUNNER IN THE NES
 </div>
 <hr/>
 <p>
-I <a href="https://github.com/mwenge/gridnes" target="_blank">ported</a> <a href="https://en.wikipedia.org/wiki/Gridrunner" target="_blank">Gridrunner</a> to the Nintendo Entertainment System (NES). Possibly a technical miracle. Or possibly not.
+I <a href="https://github.com/mwenge/gridnes" target="_blank">ported</a> <a href="https://en.wikipedia.org/wiki/Gridrunner" target="_blank">Gridrunner</a> to the Nintendo Entertainment System (NES). Possibly a technical miracle. Possibly not.
 </p>
 <img loading="lazy" src="images/gridnes.gif" width="2305" height="1658" style="width: 100%; height: auto; margin-bottom:1ch;">
 <span style="text-align: center; display: block; margin-bottom: 2ch;"><i><small>Look at it in all its glory..</small></i></span>
@@ -166,7 +166,7 @@ PORTING YOU SAY
 a very basic port such as mine with very little difficulty. 
 </p>
 <p>
-Unfortunately, we don't have the code of Gridrunner to hand. It is probably sitting on an antique disk somewhere in a cottage in Wales. 
+Unfortunately, we don't have the code of Gridrunner to hand. It is probably sitting on an antique disk <a href="https://mastodon.social/@llamasoft_ox@toot.wales" target="_blank">somewhere in a cottage in Wales.</a> 
 </p>
 <p>
 Fortunately, disassembling the game binary back into assembly language is relatively easy. So relatively-easy <a href="https://github.com/mwenge/gridrunner" target="_blank">I did it a couple of years ago.</a> So we have
@@ -176,7 +176,8 @@ the code to hand after all!
 The approach I took is very basic indeed. All of the <code>NES</code>-specific code lives in <a href="https://github.com/mwenge/gridnes/blob/master/src/nes.asm" target="_blank">this file called <code>nes.asm</code></a>.
 </p>
 <p>
-The rest lives in, you guessed it, <a href="https://github.com/mwenge/gridnes/blob/master/src/gridrunner.asm" target="_blank"><code>gridrunner.asm</code></a>.
+The rest lives in, you guessed it, <a href="https://github.com/mwenge/gridnes/blob/master/src/gridrunner.asm" target="_blank"><code>gridrunner.asm</code></a>. This
+is mostly unmodified code of the C64 original. Some stuff had to be deleted obviously to make way for the NES-specific implementation, more of which later.
 </p>
 
 <p>
