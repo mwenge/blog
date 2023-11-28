@@ -1,0 +1,379 @@
+<!doctype html>
+<meta charset="utf-8">
+<head>
+  <link rel="alternate" type="application/rss+xml"  title="RSS Feed for fabiensanglard.net" href="/rss.xml" />
+  <style type="text/css">
+
+    @font-face {
+      font-family: 'fabfont';
+      src: url('/font/DejaVuSansMono.woff2');
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: 'fabfont';
+      src: url('/font/DejaVuSansMono-Bold.woff2');
+      font-weight: bold;
+      font-display: block;
+    }
+
+    * {
+       font-size: 16px;
+    }
+
+    html {
+      font-family: fabfont,  monospace;
+      max-width: 900px;  /* For Desktop PC (see @media for Tablets/Phones) */
+      padding-left: 2%;
+      padding-right: 3%;
+      margin: 0 auto;
+      background: #F5F5F0;
+  	} 
+    
+  	a {
+      color: black;
+      font-weight: bold;
+    }
+
+    img {
+      border: none; 
+    }
+
+    p {
+      margin-top: 0px;
+      text-align: justify;
+    }
+    sup {
+      vertical-align: 0.3em;
+      font-size: 0.65em;
+    }   
+
+    pre {
+      font-family: fabfont, monospace;
+      background-color: white; 
+      border: 1px solid Black; 
+      padding-left: 2%;
+      padding-top: 1ch;
+      padding-bottom: 1ch;
+      /* Only take care of X overflow since this is the only part that can be too wide.
+         The Y axis will never overflow.
+      */
+      overflow: hidden;
+    }
+
+    div.heading {
+      font-weight: bold;      
+      text-transform: uppercase;
+      margin-top: 4ch;
+    }
+
+    /** {
+      font-size: 16px;
+    }*/
+    @media (max-width: 500px) { /* For small screen decices */
+      * {
+        font-size: 12px; 
+      }
+    }   
+    .title {
+      text-decoration: none;
+    }
+
+    img.pixel, canvas.pixel {
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
+    }
+
+    blockquote { 
+    background-color: #f3f3f3;
+    border: dashed 1px grey; 
+    width: 97.5%; 
+    font-style: italic; 
+    text-align: justify;
+
+    padding: 1ch; 
+    padding-top: 2ch; 
+    padding-bottom: 2ch;     
+    
+    margin : 0ch; 
+    margin-bottom: 2ch; 
+    margin-top: 0ch;
+  }
+
+  blockquote div {
+    text-transform: none;
+    text-align: right;
+    width: 100%;
+  }
+
+  code {
+    /*font-size: 110%;*/
+    font-weight: bold;
+    background-color: #e1e1e1;
+    border-radius: 0.5ch;
+    padding-left: 0.3ch;
+    padding-right: 0.3ch;
+  }
+
+  </style>
+  <style type="text/css">
+      .red {
+          color:red;
+      }
+      pre {
+          overflow: auto;
+      }
+  </style>
+  <!-- Update the title here -->
+  <title>Gridrunner in the NES</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=12.0, minimum-scale=1.0, user-scalable=yes">
+</head>  
+<body>
+<br>
+<center>
+  <div style="display: inline-block; vertical-align:middle;">
+    <a href="index.html" class="title"><b>ROB HOGAN'S WEBSITE</b><br></a>
+    <hr/>
+    <div style="text-align: justify;display: inline-block; width: 100%;">
+      <a class="title" href="https://github.com/mwenge" target="_blank">GITHUB</a> &nbsp;
+      <a class="title" href="/contact/index.html">EMAIL</a> &nbsp;
+      <a class="title" href="https://mastodon.social/@mwenge" target="_blank">SOCIAL</a> &nbsp;
+      <a class="title" href="https://paypal.me/hoganrobert" target="_blank">DONATE</a>
+    </div>
+  </div>
+</center>
+<br><br>
+<!-- Blog entry starts here -->
+<div style="margin-bottom: 2ch;text-transform: none;">
+  May 26, 2023
+</div>
+<div class='heading'>
+GRIDRUNNER IN THE NES
+</div>
+<hr/>
+<p>
+I <a href="https://github.com/mwenge/gridnes" target="_blank">ported</a> <a href="https://en.wikipedia.org/wiki/Gridrunner" target="_blank">Gridrunner</a> to the Nintendo Entertainment System (NES). Possibly a technical miracle. Or possibly not.
+</p>
+<img loading="lazy" src="images/gridnes.gif" width="2305" height="1658" style="width: 100%; height: auto; margin-bottom:1ch;">
+<span style="text-align: center; display: block; margin-bottom: 2ch;"><i><small>Look at it in all its glory..</small></i></span>
+<div class='heading'>
+PORTING YOU SAY
+</div>
+<hr/>
+<p>
+'Porting' is probably overstating it. Like the Commodore 64, the NES had a 6502 CPU so if you have the code for Gridrunner to hand it is possible to do
+a very basic port such as mine with very little difficulty. 
+</p>
+<p>
+Unfortunately, we don't have the code of Gridrunner to hand. It is probably sitting on an antique disk somewhere in a cottage in Wales. 
+</p>
+<p>
+Fortunately, disassembling the game binary back into assembly language is relatively easy. So relatively-easy <a href="https://github.com/mwenge/gridrunner" target="_blank">I did it a couple of years ago.</a> So we have
+the code to hand after all!
+</p>
+<p>
+The approach I took is very basic indeed. All of the <code>NES</code>-specific code lives in <a href="https://github.com/mwenge/gridnes/blob/master/src/nes.asm" target="_blank">this file called <code>nes.asm</code></a>.
+</p>
+<p>
+The rest lives in, you guessed it, <a href="https://github.com/mwenge/gridnes/blob/master/src/gridrunner.asm" target="_blank"><code>gridrunner.asm</code></a>.
+</p>
+
+<p>
+Finally, there's <a href="https://github.com/mwenge/gridnes/blob/master/src/charset.asm" target="_blank"><code>charset.asm</code></a> where the definition for this little
+fellow lives:
+</p>
+<!-- HTML generated using hilite.me -->
+<div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008000">.BYTE</span> <span style="color: #666666">$18</span>,<span style="color: #666666">$3C</span>,<span style="color: #666666">$66</span>,<span style="color: #666666">$18</span>,<span style="color: #666666">$7E</span>,<span style="color: #666666">$FF</span>,<span style="color: #666666">$E7</span>,<span style="color: #666666">$C3</span>,<span style="color: #666666">$18</span>,<span style="color: #666666">$3C</span>,<span style="color: #666666">$66</span>,<span style="color: #666666">$18</span>,<span style="color: #666666">$7E</span>,<span style="color: #666666">$FF</span>,<span style="color: #666666">$E7</span>,<span style="color: #666666">$C3</span>
+                                        <span style="color: #408080; font-style: italic">; CHARACTER $07, SHIP</span>
+                                        <span style="color: #408080; font-style: italic">; 00011000      **   </span>
+                                        <span style="color: #408080; font-style: italic">; 00111100     ****  </span>
+                                        <span style="color: #408080; font-style: italic">; 01100110    **  ** </span>
+                                        <span style="color: #408080; font-style: italic">; 00011000      **   </span>
+                                        <span style="color: #408080; font-style: italic">; 01111110    ****** </span>
+                                        <span style="color: #408080; font-style: italic">; 11111111   ********</span>
+                                        <span style="color: #408080; font-style: italic">; 11100111   ***  ***</span>
+                                        <span style="color: #408080; font-style: italic">; 11000011   **    **</span>
+</pre></div>
+
+<div class='heading'>
+GRAPHICS & CO.
+</div>
+<hr/>
+<p>
+The C64 is a very friendly system to develop on - you write a value to a location in memory and it magically
+appears on screen. You write a value to a different location, it changes color. The NES on the other hand requires
+a lot more convolutions from you. While it allows up to 64 8x8 sprites, it does not really envisage you writing
+lots of characters to screen every frame - which is what we're doing here, just like the original Gridrunner. Of
+course, there is a world in which I could have just used sprites instead (and maybe there will be) but for a first
+pass what I have done is write as many as characters as possible to screen as I can in the small interval allowed by
+the NES between each frame. 
+
+</p>
+<p>
+This all happens in the <code>MainNMIInterruptHandler</code>, which is the routine that runs every
+time the NES takes a little rest between drawing a frame on the screen. This little rest is known as the VBLANK, or
+Vertical Blank. Every time Gridrunner wants to write a character to the screen, such as when moving the ship to a new
+position, I instead write it to a buffer array called <code>NMT_UPDATE</code>. 
+</p>
+<p>
+This is done using a few different utility functions, depending on the use case, but mainly <code>WriteCurrentCharacterToCurrentXYPosBatch</code> which will append updates
+to the list in <code>NMT_UPDATE</code> until there are enough of them to warrant writing to the screen itself in <code>MainNMIInterruptHandler</code>.
+
+</p>
+<p>
+<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">WriteCurrentCharacterToCurrentXYPosBatch
+        <span style="color: #008000; font-weight: bold">JSR</span> GetLinePtrForCurrentYPosition
+        <span style="color: #008000; font-weight: bold">LDA</span> #<span style="color: #666666">47</span>
+        <span style="color: #008000; font-weight: bold">STA</span> BATCH_SIZE
+        <span style="color: #008000; font-weight: bold">JSR</span> AddPixelToNMTUpdate
+
+        <span style="color: #408080; font-style: italic">; If we&#39;ve got a few to write, let them do that now.</span>
+        <span style="color: #008000; font-weight: bold">CPX</span> #BATCH_SIZE
+        <span style="color: #008000; font-weight: bold">BMI</span> @UpdateComplete
+        <span style="color: #008000; font-weight: bold">JSR</span> PPU_Update
+
+        <span style="color: #408080; font-style: italic">;FIXME: Get Color</span>
+<span style="color: #408080; font-style: italic">;       LDA colorForCurrentCharacter</span>
+@UpdateComplete
+        <span style="color: #008000; font-weight: bold">RTS</span>
+</pre></div>
+
+</p>
+<p>
+<code>AddPixelToNMTUpdate</code> does the actual writing to the <code>NMT_UPDATE</code> array:
+
+</p>
+<p>
+<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">AddPixelToNMTUpdate
+        <span style="color: #008000; font-weight: bold">JSR</span> GetCharacterAtCurrentXYPos
+        <span style="color: #008000; font-weight: bold">CMP</span> currentCharacter
+        <span style="color: #008000; font-weight: bold">BEQ</span> @Return
+
+        <span style="color: #008000; font-weight: bold">LDA</span> currentCharacter
+        <span style="color: #008000; font-weight: bold">STA</span> (screenBufferLoPtr),Y
+
+        <span style="color: #408080; font-style: italic">; Write to the actual screen (the PPU).</span>
+        <span style="color: #008000; font-weight: bold">LDX</span> NMT_UPDATE_LEN
+
+        <span style="color: #008000; font-weight: bold">LDA</span> screenLineHiPtr
+        <span style="color: #008000; font-weight: bold">STA</span> NMT_UPDATE, X
+        <span style="color: #008000; font-weight: bold">INX</span>
+
+        <span style="color: #008000; font-weight: bold">LDA</span> screenLineLoPtr
+        <span style="color: #008000; font-weight: bold">CLC</span>
+        <span style="color: #008000; font-weight: bold">ADC</span> currentXPosition
+        <span style="color: #008000; font-weight: bold">STA</span> NMT_UPDATE, X
+        <span style="color: #008000; font-weight: bold">INX</span>
+
+        <span style="color: #008000; font-weight: bold">LDA</span> currentCharacter
+        <span style="color: #008000; font-weight: bold">STA</span> NMT_UPDATE, X
+        <span style="color: #008000; font-weight: bold">INX</span>
+
+        <span style="color: #008000; font-weight: bold">STX</span> NMT_UPDATE_LEN
+
+@Return
+        <span style="color: #008000; font-weight: bold">RTS</span>
+</pre></div>
+</p>
+<div class='heading'>
+SOUND
+</div>
+<hr/>
+<p>
+Crappy, almost non-existent. I stopped short of figuring out how to make sound work in NES properly.
+</p>
+
+<div class='heading'>
+GAMEPLAY
+</div>
+<hr/>
+<p>
+The NES version seems faster than the original Gridrunner. This is not because I'm a coding genius, it's because it's
+the way it worked when I got the thing into a functioning state. 
+</p>
+
+<img width="350" src="https://github.com/mwenge/gridnes/assets/58846/26e05987-7d5c-476b-9375-a9b0b69ba2d6">
+ <img src="https://user-images.githubusercontent.com/58846/103443482-9fb16180-4c57-11eb-9403-4968bd16287f.gif" width=400>
+<span style="text-align: center; display: block; margin-bottom: 2ch;"><i><small>NES to the left, C64 to the right</small></i></span>
+
+<div class='heading'>
+I WANT TO PLAY IT
+</div>
+<hr/>
+<p>
+Easiest thing is just to <a href="https://mwenge.github.io/gridnes/" target="_blank">play it online here.</a>
+</p>
+<p>
+Maybe it will even work if you try to play it online in the iframe below. Worth a try maybe? <code>S</code> is the Fire key. Arrows for moving around.
+You may have to click the screen a few times to get it going. Also, the browser experience is substantially slower than
+ <a href="https://github.com/mwenge/gridnes/tree/master#build" target="_blank">running it natively.</a>
+
+</p>
+<p>
+<iframe src="https://mwenge.github.io/gridnes/" frameBorder="0" style="width: 100%; height: 70vh; margin: 0 auto; display:block;"></iframe>
+</p>
+<div class='heading'>
+HOW DOES IT WORK?
+</div>
+<hr/>
+I wrote up the basic workings of C64 gridrunner in this <a
+href="https://github.com/mwenge/llamaSource/blob/main/GridrunnerTheLittleBlackBook.md"
+target="_blank">Little Black Book</a>. There's also some extra detail I haven't
+fully recycled <a href="https://github.com/mwenge/gridnes" target="_blank">on the project's github page,</a> where you can also download and run the game
+on your NES emulator or inspect the source code or do other things that take your fancy.. 
+<hr/>
+
+
+
+<!-- Footnotes start here -->
+<!--
+<style type='text/css'>td.ref {  padding-bottom: 0ch; width:0;}</style>
+<div class='heading'>References</div><hr/><p id='paperbox' style='text-align:left;'>
+<table>
+  <tbody style='vertical-align: top;'>
+    <tr>
+      <td class='ref' style='width:1ch;'><a name="footnote_1"></a><a href="#back_1">^</a></td>
+      <td  class='ref' style='width:4ch;'> [1]</td>
+      <td style='width:100%;text-align:left;' class='ref'><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627591">Firefox Bugzilla: Preload dlls on windows</a></td>
+    </tr>
+    <tr>
+      <td class='ref' style='width:1ch;'><a name="footnote_2"></a><a href="#back_2">^</a></td>
+      <td  class='ref' style='width:4ch;'> [2]</td>
+      <td style='width:100%;text-align:left;' class='ref'><a href="https://binary.ninja/">Binary Ninja</a></td>
+    </tr>
+    <tr>
+      <td class='ref' style='width:1ch;'><a name="footnote_3"></a><a href="#back_3">^</a></td>
+      <td  class='ref' style='width:4ch;'> [3]</td>
+      <td style='width:100%;text-align:left;' class='ref'><a href="https://gist.github.com/mauricio/2310831">java-launcher.c</a></td>
+    </tr>
+    <tr>
+      <td class='ref' style='width:1ch;'><a name="footnote_4"></a><a href="#back_4">^</a></td>
+      <td  class='ref' style='width:4ch;'> [4]</td>
+      <td style='width:100%;text-align:left;' class='ref'><a href="https://natanyellin.com/posts/life-and-death-of-a-linux-process"> Life and Death of a Linux Process</a></td>
+    </tr>
+    <tr>
+      <td class='ref' style='width:1ch;'><a name="footnote_5"></a><a href="#back_5">^</a></td>
+      <td  class='ref' style='width:4ch;'> [5]</td>
+      <td style='width:100%;text-align:left;' class='ref'><a href="https://natanyellin.com/posts/using-linux-audit-to-track-processes"> Using the Linux Audit API to Track Processes</a></td>
+    </tr>
+    <tr>
+      <td class='ref' style='width:1ch;'><a name="footnote_6"></a><a href="#back_6">^</a></td>
+      <td  class='ref' style='width:4ch;'> [6]</td>
+      <td style='width:100%;text-align:left;' class='ref'><a href="https://natanyellin.com/posts/buggy-netlink-process-connectors"> When Netlink Process Connectors Don’t Process</a></td>
+    </tr>
+    <tr>
+      <td class='ref' style='width:1ch;'><a name="footnote_7"></a><a href="#back_7">^</a></td>
+      <td  class='ref' style='width:4ch;'> [7]</td>
+      <td style='width:100%;text-align:left;' class='ref'><a href="https://natanyellin.com/posts/tracking-running-processes-on-linux"> The Difficulties of Tracking Running Processes on Linux</a></td>
+    </tr>
+    <tr>
+      <td class='ref' style='width:1ch;'><a name="footnote_8"></a><a href="#back_8">^</a></td>
+      <td  class='ref' style='width:4ch;'> [8]</td>
+      <td style='width:100%;text-align:left;' class='ref'><a href="https://natanyellin.com/posts/understanding-netlink-process-connector-output"> Understanding Netlink Process Connector Output</a></td>
+    </tr>
+  </tbody>
+</table>
+</p> <hr>
+-->
+ <center>*
