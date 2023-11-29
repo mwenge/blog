@@ -1,0 +1,209 @@
+<!doctype html>
+<meta charset="utf-8">
+<head>
+  <link rel="alternate" type="application/rss+xml"  title="RSS Feed for fabiensanglard.net" href="/rss.xml" />
+  <style type="text/css">
+
+    @font-face {
+      font-family: 'fabfont';
+      src: url('/font/DejaVuSansMono.woff2');
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: 'fabfont';
+      src: url('/font/DejaVuSansMono-Bold.woff2');
+      font-weight: bold;
+      font-display: block;
+    }
+
+    * {
+       font-size: 16px;
+    }
+
+    html {
+      font-family: fabfont,  monospace;
+      max-width: 900px;  /* For Desktop PC (see @media for Tablets/Phones) */
+      padding-left: 2%;
+      padding-right: 3%;
+      margin: 0 auto;
+      background: #F5F5F0;
+  	} 
+    
+  	a {
+      color: black;
+      font-weight: bold;
+    }
+
+    img {
+      border: none; 
+    }
+
+    p {
+      margin-top: 0px;
+      text-align: justify;
+    }
+    sup {
+      vertical-align: 0.3em;
+      font-size: 0.65em;
+    }   
+
+    pre {
+      font-family: fabfont, monospace;
+      background-color: white; 
+      border: 1px solid Black; 
+      padding-left: 2%;
+      padding-top: 1ch;
+      padding-bottom: 1ch;
+      /* Only take care of X overflow since this is the only part that can be too wide.
+         The Y axis will never overflow.
+      */
+      overflow: hidden;
+    }
+
+    div.heading {
+      font-weight: bold;      
+      text-transform: uppercase;
+      margin-top: 4ch;
+    }
+
+    /** {
+      font-size: 16px;
+    }*/
+    @media (max-width: 500px) { /* For small screen decices */
+      * {
+        font-size: 12px; 
+      }
+    }   
+    .title {
+      text-decoration: none;
+    }
+
+    img.pixel, canvas.pixel {
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
+    }
+
+    blockquote { 
+    background-color: #f3f3f3;
+    border: dashed 1px grey; 
+    width: 97.5%; 
+    font-style: italic; 
+    text-align: justify;
+
+    padding: 1ch; 
+    padding-top: 2ch; 
+    padding-bottom: 2ch;     
+    
+    margin : 0ch; 
+    margin-bottom: 2ch; 
+    margin-top: 0ch;
+  }
+
+  blockquote div {
+    text-transform: none;
+    text-align: right;
+    width: 100%;
+  }
+
+  code {
+    /*font-size: 110%;*/
+    font-weight: bold;
+    background-color: #e1e1e1;
+    border-radius: 0.5ch;
+    padding-left: 0.3ch;
+    padding-right: 0.3ch;
+  }
+
+  </style>
+  <style type="text/css">
+      .red {
+          color:red;
+      }
+      pre {
+          overflow: auto;
+      }
+  </style>
+  <!-- Update the title here -->
+  <title>Not Really a Theory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=12.0, minimum-scale=1.0, user-scalable=yes">
+</head>  
+<body>
+<br>
+<center>
+  <div style="display: inline-block; vertical-align:middle;">
+    <a href="index.html" class="title"><b>ROB HOGAN'S WEBSITE</b><br></a>
+    <hr/>
+    <div style="text-align: justify;display: inline-block; width: 100%;">
+      <a class="title" href="https://github.com/mwenge" target="_blank">GITHUB</a> &nbsp;
+      <a class="title" href="/contact/index.html">EMAIL</a> &nbsp;
+      <a class="title" href="https://mastodon.social/@mwenge" target="_blank">SOCIAL</a> &nbsp;
+      <a class="title" href="https://paypal.me/hoganrobert" target="_blank">DONATE</a>
+    </div>
+  </div>
+</center>
+<br><br>
+<!-- Blog entry starts here -->
+<div style="margin-bottom: 2ch;text-transform: none;">
+  April 9, 2023
+</div>
+<div class='heading'>
+LET'S WRITE A BOOK
+</div>
+<hr/>
+<p>
+Over the Christmas of 2022 I downloaded <a href="https://fabiensanglard.net/cpsb_paper/index.html" target="_blank">Fabien Sanglard's Book of CP-System.</a> "This is really cool", I thought as I devoured it from cover to cover, 
+"I would really enjoy a book like this that covered the workings of a Commodore 64 game such as Iridis Alpha. It would dive into the way the graphics 
+work, the coding techniques used to make the game so fast, and really just pull the whole thing apart and explain it in gory detail." 
+</p>
+<p>
+Inspired by this idea and the really quite lovely layout Fabien has managed in all of his books I soon became convinced I could write this Iridis Alpha
+bible. All I had to do was <a href="https://github.com/fabiensanglard/cpsb" target="_blank">use Fabien's code</a> as a basis and
+ dust off m<a href="https://github.com/mwenge/iridisalpha" target="_blank">y insanely detailed disassembly of Iridis Alpha</a> from the previous year. (Yes, that's
+right - I completely disassembled the Iridis Alpha binary over a period of many months and by now had a good handle on most of how the game actually
+worked.)
+</p>
+<div style="margin: 0 auto; width: 40%;"><img loading="lazy" src="images/ia.png" style="width:85%; height: auto; margin-bottom:1ch;"></div>
+<p>
+Four or five months later the result is <a href="https://iridisalpha.com" target="_blank"><code>Iridis Alpha Theory</code></a>, a comprehensive anatomy of an old 8-bit game that has been a source of 
+fascination to me since childhood. Is it finished? Not really. I suspect I will always come back to it to add bits here and there and take others
+away. Is it what I hoped it would be? It's exactly the book I had in my head when I started out. That doesn't mean it's a great book of course,
+but it's exactly what I pictured. 
+</p>
+<div class='heading'>
+IRIDIS ALPHA THEORY
+</div>
+<hr/>
+<p>
+There is no theory of course. It's just a fun title with a totally nonsensical inspiration:
+
+<div style="margin: 0 auto; width: 40%;"><img loading="lazy" src="images/kingkong.jpg" style="width:80%; height: auto; margin-bottom:1ch;"></div>
+<span style="text-align: center; display: block; margin-bottom: 2ch;"><i><small>Virginie Despente's polemic against female subjugation. An unusual inspairation for a
+book about a silly old computer game, but there you are.</small></i></span>
+
+<p>
+ <a href="https://iridisalpha.com" target="_blank">The book itself</a> is full of pictures and diagrams and code listings. I've tried in most places
+to explain to the uninitiated-but-interested how the code works and what it is doing, sometimes even down to elucidating the bitwise operations that 6502 assembly
+language is inevitably full of. Deep down I know I have more to do to make those explanations land properly. Hopefully over time and with the occasional re-reading I'll find
+ways of making them better.
+
+</p>
+<div style="margin: 0 auto; width: 90%;">
+<img loading="lazy" src="images/iasample.png" style="width:100%; height: auto; margin-bottom:1ch;">
+<span style="text-align: center; display: block; margin-bottom: 2ch;"><i><small>There are <a href="https://github.com/mwenge/iatheory/raw/main/out/iatheory_scrapbook.pdf" target="_blank">pages and pages</a> of this!</small></i></span>
+</div>
+<div class='heading'>
+THE LATEX BUG
+</div>
+<hr/>
+<p>
+I think I might have caught the <a href="https://www.latex-project.org/" target="_blank">Latex</a> bug. It's really quite enjoyable <a href="https://github.com/mwenge/iatheory" target="_blank">putting together a book with it.</a> Your stupid squibs suddenly seem very important when
+laid out properly. The write-compile cycle is familiar to me as a coder and I guess I'm persistent enough to power through reams of inscrutable errors. And,
+oh boy, does Latex like inscrutable error messages. I'm talking to you <code>'Error:Horizontal HBox Badness 3000'</code>. But if you can get past that, there's a Latex solution for every diagram and table layout you can think of wanting. It's a wonderful tool.
+</p>
+<p>
+I'm already <a href="https://github.com/mwenge/psypixels" target="_blank">working on a crazy followup.</a>
+</p>
+
+ <center>*
