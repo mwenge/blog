@@ -1,0 +1,219 @@
+<!doctype html>
+<meta charset="utf-8">
+<head>
+  <link rel="alternate" type="application/rss+xml"  title="RSS Feed for fabiensanglard.net" href="/rss.xml" />
+  <style type="text/css">
+
+    @font-face {
+      font-family: 'fabfont';
+      src: url('/font/DejaVuSansMono.woff2');
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: 'fabfont';
+      src: url('/font/DejaVuSansMono-Bold.woff2');
+      font-weight: bold;
+      font-display: block;
+    }
+
+    * {
+       font-size: 16px;
+    }
+
+    html {
+      font-family: fabfont,  monospace;
+      max-width: 900px;  /* For Desktop PC (see @media for Tablets/Phones) */
+      padding-left: 2%;
+      padding-right: 3%;
+      margin: 0 auto;
+      background: #F5F5F0;
+  	} 
+    
+  	a {
+      color: black;
+      font-weight: bold;
+    }
+
+    img {
+      border: none; 
+    }
+
+    p {
+      margin-top: 0px;
+      text-align: justify;
+    }
+    sup {
+      vertical-align: 0.3em;
+      font-size: 0.65em;
+    }   
+
+    pre {
+      font-family: fabfont, monospace;
+      background-color: white; 
+      border: 1px solid Black; 
+      padding-left: 2%;
+      padding-top: 1ch;
+      padding-bottom: 1ch;
+      /* Only take care of X overflow since this is the only part that can be too wide.
+         The Y axis will never overflow.
+      */
+      overflow: hidden;
+    }
+
+    div.heading {
+      font-weight: bold;      
+      text-transform: uppercase;
+      margin-top: 4ch;
+    }
+
+    /** {
+      font-size: 16px;
+    }*/
+    @media (max-width: 500px) { /* For small screen decices */
+      * {
+        font-size: 12px; 
+      }
+    }   
+    .title {
+      text-decoration: none;
+    }
+
+    img.pixel, canvas.pixel {
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
+    }
+
+    blockquote { 
+    background-color: #f3f3f3;
+    border: dashed 1px grey; 
+    width: 97.5%; 
+    font-style: italic; 
+    text-align: justify;
+
+    padding: 1ch; 
+    padding-top: 2ch; 
+    padding-bottom: 2ch;     
+    
+    margin : 0ch; 
+    margin-bottom: 2ch; 
+    margin-top: 0ch;
+  }
+
+  blockquote div {
+    text-transform: none;
+    text-align: right;
+    width: 100%;
+  }
+
+  code {
+    /*font-size: 110%;*/
+    font-weight: bold;
+    background-color: #e1e1e1;
+    border-radius: 0.5ch;
+    padding-left: 0.3ch;
+    padding-right: 0.3ch;
+  }
+
+  </style>
+  <style type="text/css">
+      .red {
+          color:red;
+      }
+      pre {
+          overflow: auto;
+      }
+  </style>
+  <!-- Update the title here -->
+  <title>Polyglot Programming Pipelining</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=12.0, minimum-scale=1.0, user-scalable=yes">
+</head>  
+<body>
+<br>
+<center>
+  <div style="display: inline-block; vertical-align:middle;">
+    <a href="index.html" class="title"><b>MWENGE'S WEBSITE</b><br></a>
+    <hr/>
+    <div style="text-align: justify;display: inline-block; width: 100%;">
+      <a class="title" href="https://github.com/mwenge" target="_blank">GITHUB</a> &nbsp;
+      <a class="title" href="/contact/index.html">EMAIL</a> &nbsp;
+      <a class="title" href="https://mastodon.social/@mwenge" target="_blank">SOCIAL</a> &nbsp;
+      <a class="title" href="https://paypal.me/hoganrobert" target="_blank">DONATE</a>
+    </div>
+  </div>
+</center>
+<br><br>
+<!-- Blog entry starts here -->
+<div style="margin-bottom: 2ch;text-transform: none;">
+  November 26, 2022
+</div>
+<div class='heading'>
+POLYGLOT PROGRAMMING PICKLED PEPPER PIPELINE
+</div>
+<hr/>
+<p>
+I <a href="https://io10.dev" target="_blank">made a polyglot programming pipeline thing.</a> This is a classic case of having a slightly off-beam idea and following
+through on it the whole way regardless of how useful the end result may turn out.
+</p>
+<p>
+<video controls autoplay muted loop src="images/io10.webm" style="width: 100%; height: auto; margin-bottom:1ch;">
+</p>
+<p>
+The idea is that you can run practically any programming language of your choice against your data and that you can string together scripts written in 
+different languages to create something resembling a data pipeline. In the video above we run Python to parse a file called <code>EXECUTIVE.AGC</code>
+and write a comma-separated file (csv) as output. We then go to the next step in the pipeline and run a SQL query against that csv output.
+</p>
+<p>
+That is the whole of the idea in a nutshell. As you can see from the video you can flick between steps in the pipeline pretty easily and the scripts
+themselves run quite quickly, nearly blink-and-you'll-miss-it. 
+</p>
+<div class='heading'>
+NAVIGATING
+</div>
+<hr/>
+<p>
+The UI at the bottom lets you know which step in the pipeline you're at. The UI on the 
+side lets you know which pipeline you're in. Here's a video showing me switching between steps in the pipeline using <code>ALT-LEFT</code>
+and <code>ALT-RIGHT</code>.
+</p>
+<p>
+Notice that creating new steps in the pipeline is as simple as navigating beyond the last one. Notice also that the output from the previous
+step is made available to the current step as <code>input.txt</code>. It's also available on <code>stdin</code>.
+</p>
+<p>
+<video controls autoplay muted loop src="images/io10-2.mp4" style="width: 100%; height: auto; margin-bottom:1ch;">
+</p>
+In the next video I'm switching between pipelines using <code>ALT-UP</code> and <code>ALT-DOWN</code>. At any time I can load a file into 
+the current step I'm working on using <code>CTRL-O</code>.
+</p>
+<p>
+<video controls autoplay muted loop src="images/io10-3.mp4" style="width: 100%; height: auto; margin-bottom:1ch;">
+</p>
+<div class='heading'>
+CODING
+</div>
+<p>
+It does a reasonable job of guessing which language you're using thanks to <a href="https://github.com/hieplpvip/guesslang-js" target="_blank"><code>guesslang</code></a>. 
+Below we first run a Python script, then we paste in a Javascript snippet. The step description changes from <code>*.py</code> to <code>*.js</code> to indicate
+that the change in language has been recognized. 
+</p>
+<p>
+The help file (<code>F1</code>) gives some more hints on the supported languages and how to force
+language recognition if that becomes necessary (and it sometimes does with particularly short code snippets).
+</p>
+<p>
+<video controls autoplay muted loop src="images/io10-4.mp4" style="width: 100%; height: auto; margin-bottom:1ch;">
+</p>
+<hr/>
+<div class='heading'>
+BUT MY DATA!
+</div>
+<hr/>
+<p>
+Of course everything you do persists between sessions. You can even save down all your pipelines to a zip file and import them in another
+instance on another computer. This is necessary because there's no server side to this at all - everything you do is local to your computer
+from the data you read and write to the code you run.
+</p>
+
+ <center>*
