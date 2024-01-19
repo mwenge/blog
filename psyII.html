@@ -167,6 +167,9 @@ contains a slightly modified version of the core from the 1984 original with
 nearly all of the knobs and dials stripped out, so developing a game around it
 involves a lot more adding of code than deleting.
 </p>
+<p>
+<video controls autoplay muted loop src="images/psyII.mp4" style="width: 100%; height: auto; margin-bottom:1ch;">
+</p>
 <div class='heading'>
 MY BRIGHT IDEA
 </div>
@@ -193,7 +196,7 @@ as possible!
 <p>
 If you're interested in what the source code for such a game looks like,
  <a href="https://github.com/mwenge/psyII" target="_blank"> you can take a look at it here.</a> 
-
+Here are a couple of things in there that are kind of interesting.
 </p>
 <div class='heading'>
   SCROLLING THE BACKGROUND
@@ -333,55 +336,63 @@ ReturnFromInterrupt
         <span style="color: #008800; font-weight: bold">RTI</span>                                                     
 </pre></div>
 
+<div class='heading'>
+NEW PATTERNS
+</div>
+<hr/>
+<p>
+I've included all the patterns from the original game, but really there's no point
+in a game being too easy all of the time. For this reason I've sprinkled a few harder-to-fill
+patterns throughout the levels where it takes a little more deliberation by the player
+to fill the screen without burning a lot of hard-earned points. Because I'm lazy these are 
+randomly generated 
+<a href="https://github.com/mwenge/blob/master/notebooks/Create Patterns.ipynb" target="_blank"> by a little Python script.</a>
+</p>
+<p>
+ <a href="https://mwenge.github.io/psypixels" target="_blank">Psychedlia Syndrome</a> 
+goes into a bit of depth on how the pattern data structure works (I see I've
+only mentioned my book-in-progress twice already so remedying that here) but
+the principle is very simple. This is what the pattern data structure for the
+pattern used in the Batalyx subgame looks like: 
+</p>
 
-<!-- Footnotes start here -->
-<!--
-<style type='text/css'>td.ref {  padding-bottom: 0ch; width:0;}</style>
-<div class='heading'>References</div><hr/><p id='paperbox' style='text-align:left;'>
-<table>
-  <tbody style='vertical-align: top;'>
-    <tr>
-      <td class='ref' style='width:1ch;'><a name="footnote_1"></a><a href="#back_1">^</a></td>
-      <td  class='ref' style='width:4ch;'> [1]</td>
-      <td style='width:100%;text-align:left;' class='ref'><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627591">Firefox Bugzilla: Preload dlls on windows</a></td>
-    </tr>
-    <tr>
-      <td class='ref' style='width:1ch;'><a name="footnote_2"></a><a href="#back_2">^</a></td>
-      <td  class='ref' style='width:4ch;'> [2]</td>
-      <td style='width:100%;text-align:left;' class='ref'><a href="https://binary.ninja/">Binary Ninja</a></td>
-    </tr>
-    <tr>
-      <td class='ref' style='width:1ch;'><a name="footnote_3"></a><a href="#back_3">^</a></td>
-      <td  class='ref' style='width:4ch;'> [3]</td>
-      <td style='width:100%;text-align:left;' class='ref'><a href="https://gist.github.com/mauricio/2310831">java-launcher.c</a></td>
-    </tr>
-    <tr>
-      <td class='ref' style='width:1ch;'><a name="footnote_4"></a><a href="#back_4">^</a></td>
-      <td  class='ref' style='width:4ch;'> [4]</td>
-      <td style='width:100%;text-align:left;' class='ref'><a href="https://natanyellin.com/posts/life-and-death-of-a-linux-process"> Life and Death of a Linux Process</a></td>
-    </tr>
-    <tr>
-      <td class='ref' style='width:1ch;'><a name="footnote_5"></a><a href="#back_5">^</a></td>
-      <td  class='ref' style='width:4ch;'> [5]</td>
-      <td style='width:100%;text-align:left;' class='ref'><a href="https://natanyellin.com/posts/using-linux-audit-to-track-processes"> Using the Linux Audit API to Track Processes</a></td>
-    </tr>
-    <tr>
-      <td class='ref' style='width:1ch;'><a name="footnote_6"></a><a href="#back_6">^</a></td>
-      <td  class='ref' style='width:4ch;'> [6]</td>
-      <td style='width:100%;text-align:left;' class='ref'><a href="https://natanyellin.com/posts/buggy-netlink-process-connectors"> When Netlink Process Connectors Don’t Process</a></td>
-    </tr>
-    <tr>
-      <td class='ref' style='width:1ch;'><a name="footnote_7"></a><a href="#back_7">^</a></td>
-      <td  class='ref' style='width:4ch;'> [7]</td>
-      <td style='width:100%;text-align:left;' class='ref'><a href="https://natanyellin.com/posts/tracking-running-processes-on-linux"> The Difficulties of Tracking Running Processes on Linux</a></td>
-    </tr>
-    <tr>
-      <td class='ref' style='width:1ch;'><a name="footnote_8"></a><a href="#back_8">^</a></td>
-      <td  class='ref' style='width:4ch;'> [8]</td>
-      <td style='width:100%;text-align:left;' class='ref'><a href="https://natanyellin.com/posts/understanding-netlink-process-connector-output"> Understanding Netlink Process Connector Output</a></td>
-    </tr>
-  </tbody>
-</table>
-</p> <hr>
--->
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">; The pattern array data.                    </span>
+patternXPosArray                             
+        <span style="color: #003388; font-weight: bold">.BYTE</span> <span style="color: #005588; font-weight: bold">$FF</span>,<span style="color: #005588; font-weight: bold">$01</span>,<span style="color: #005588; font-weight: bold">$55</span>    <span style="color: #888888">; 6             </span>
+        <span style="color: #003388; font-weight: bold">.BYTE</span> <span style="color: #005588; font-weight: bold">$FE</span>,<span style="color: #005588; font-weight: bold">$02</span>,<span style="color: #005588; font-weight: bold">$55</span>    <span style="color: #888888">;            5  </span>
+        <span style="color: #003388; font-weight: bold">.BYTE</span> <span style="color: #005588; font-weight: bold">$FD</span>,<span style="color: #005588; font-weight: bold">$03</span>,<span style="color: #005588; font-weight: bold">$55</span>    <span style="color: #888888">;   4           </span>
+        <span style="color: #003388; font-weight: bold">.BYTE</span> <span style="color: #005588; font-weight: bold">$FC</span>,<span style="color: #005588; font-weight: bold">$04</span>,<span style="color: #005588; font-weight: bold">$55</span>    <span style="color: #888888">;          3    </span>
+        <span style="color: #003388; font-weight: bold">.BYTE</span> <span style="color: #005588; font-weight: bold">$FB</span>,<span style="color: #005588; font-weight: bold">$05</span>,<span style="color: #005588; font-weight: bold">$55</span>    <span style="color: #888888">;     2         </span>
+        <span style="color: #003388; font-weight: bold">.BYTE</span> <span style="color: #005588; font-weight: bold">$FA</span>,<span style="color: #005588; font-weight: bold">$06</span>,<span style="color: #005588; font-weight: bold">$55</span>    <span style="color: #888888">;        1      </span>
+        <span style="color: #003388; font-weight: bold">.BYTE</span> <span style="color: #005588; font-weight: bold">$55</span>,<span style="color: #005588; font-weight: bold">$55</span>        <span style="color: #888888">;               </span>
+patternYPosArray             <span style="color: #888888">;      1        </span>
+        <span style="color: #003388; font-weight: bold">.BYTE</span> <span style="color: #005588; font-weight: bold">$01</span>,<span style="color: #005588; font-weight: bold">$FF</span>,<span style="color: #005588; font-weight: bold">$55</span>    <span style="color: #888888">;         2     </span>
+        <span style="color: #003388; font-weight: bold">.BYTE</span> <span style="color: #005588; font-weight: bold">$FE</span>,<span style="color: #005588; font-weight: bold">$02</span>,<span style="color: #005588; font-weight: bold">$55</span>    <span style="color: #888888">;    3          </span>
+        <span style="color: #003388; font-weight: bold">.BYTE</span> <span style="color: #005588; font-weight: bold">$03</span>,<span style="color: #005588; font-weight: bold">$FD</span>,<span style="color: #005588; font-weight: bold">$55</span>    <span style="color: #888888">;           4   </span>
+        <span style="color: #003388; font-weight: bold">.BYTE</span> <span style="color: #005588; font-weight: bold">$FC</span>,<span style="color: #005588; font-weight: bold">$04</span>,<span style="color: #005588; font-weight: bold">$55</span>    <span style="color: #888888">;  5            </span>
+        <span style="color: #003388; font-weight: bold">.BYTE</span> <span style="color: #005588; font-weight: bold">$05</span>,<span style="color: #005588; font-weight: bold">$FB</span>,<span style="color: #005588; font-weight: bold">$55</span>    <span style="color: #888888">;             6 </span>
+        <span style="color: #003388; font-weight: bold">.BYTE</span> <span style="color: #005588; font-weight: bold">$FA</span>,<span style="color: #005588; font-weight: bold">$06</span>,<span style="color: #005588; font-weight: bold">$55</span>                    
+        <span style="color: #003388; font-weight: bold">.BYTE</span> <span style="color: #005588; font-weight: bold">$55</span>,<span style="color: #005588; font-weight: bold">$55</span>                        
+</pre></div>
+<br>
+<p>
+If you're reading this far you're probably the sort that can guess what's going on here without too
+much assistance. What we have is a pair of arrays, one of which gives the X positions of the pattern's
+pixels and the other which gives the Y positions. The <code>$55</code> is a separator or sentinel value,
+which we've made plainer here by separating each segment of each array onto its own line. Finally,
+the values are given relative to an origin. So <code>$01</code> in the first value in <code>patternYPosArray</code>
+tells us that the pixel is 'plus one' from the origin, i.e. one row down. Meanwhile <code>$FF</code> given as the
+first value in <code>patternXPosArray</code> might be a little more puzzling. It is in fact 'minus one'. This is because
+if you subtract 1 from 0 in binary, we rotate around to 255, or <code>$FF</code>. Likewise -2 is given as <code>$FE</code>.
+</p>
+<p>
+The way Psychedelia works is by processing one 'line' from each of the arrays at a time. The littl ascii diagram to the
+right of the data structure is my attempt to illustrate this. The '1's in that diagram are painted by the first lines
+ine each array, the '2's by the second line in ear array, and so on. 
+<p>
+If this has whetted your appetite for even more gory detail, can you guess what I recommend? That's right, my
+<a href="https://mwenge.github.io/psypixels" target="_blank">
+omnium gatherum of all things Psychedelia, 'psychedelia syndrome'.</a> It may not be finished but it is already
+packed with excessive detail.
+</p>
  <center>*
