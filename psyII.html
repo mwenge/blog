@@ -1,0 +1,387 @@
+<!doctype html>
+<meta charset="utf-8">
+<head>
+  <link rel="alternate" type="application/rss+xml"  title="RSS Feed for fabiensanglard.net" href="/rss.xml" />
+  <style type="text/css">
+
+    @font-face {
+      font-family: 'fabfont';
+      src: url('/font/DejaVuSansMono.woff2');
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: 'fabfont';
+      src: url('/font/DejaVuSansMono-Bold.woff2');
+      font-weight: bold;
+      font-display: block;
+    }
+
+    * {
+       font-size: 16px;
+    }
+
+    html {
+      font-family: fabfont,  monospace;
+      max-width: 900px;  /* For Desktop PC (see @media for Tablets/Phones) */
+      padding-left: 2%;
+      padding-right: 3%;
+      margin: 0 auto;
+      background: #F5F5F0;
+  	} 
+    
+  	a {
+      color: black;
+      font-weight: bold;
+    }
+
+    img {
+      border: none; 
+    }
+
+    p {
+      margin-top: 0px;
+      text-align: justify;
+    }
+    sup {
+      vertical-align: 0.3em;
+      font-size: 0.65em;
+    }   
+
+    pre {
+      font-family: fabfont, monospace;
+      background-color: white; 
+      border: 1px solid Black; 
+      padding-left: 2%;
+      padding-top: 1ch;
+      padding-bottom: 1ch;
+      /* Only take care of X overflow since this is the only part that can be too wide.
+         The Y axis will never overflow.
+      */
+      overflow: hidden;
+    }
+
+    div.heading {
+      font-weight: bold;      
+      text-transform: uppercase;
+      margin-top: 4ch;
+    }
+
+    /** {
+      font-size: 16px;
+    }*/
+    @media (max-width: 500px) { /* For small screen decices */
+      * {
+        font-size: 12px; 
+      }
+    }   
+    .title {
+      text-decoration: none;
+    }
+
+    img.pixel, canvas.pixel {
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
+    }
+
+    blockquote { 
+    background-color: #f3f3f3;
+    border: dashed 1px grey; 
+    width: 97.5%; 
+    font-style: italic; 
+    text-align: justify;
+
+    padding: 1ch; 
+    padding-top: 2ch; 
+    padding-bottom: 2ch;     
+    
+    margin : 0ch; 
+    margin-bottom: 2ch; 
+    margin-top: 0ch;
+  }
+
+  blockquote div {
+    text-transform: none;
+    text-align: right;
+    width: 100%;
+  }
+
+  code {
+    /*font-size: 110%;*/
+    font-weight: bold;
+    background-color: #e1e1e1;
+    border-radius: 0.5ch;
+    padding-left: 0.3ch;
+    padding-right: 0.3ch;
+  }
+
+  </style>
+  <style type="text/css">
+      .red {
+          color:red;
+      }
+      pre {
+          overflow: auto;
+      }
+  </style>
+  <!-- Update the title here -->
+  <title>Psychedelia II</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=12.0, minimum-scale=1.0, user-scalable=yes">
+</head>  
+<body>
+<br>
+<center>
+  <div style="display: inline-block; vertical-align:middle;">
+    <a href="index.html" class="title"><b>MWENGE'S WEBSITE</b><br></a>
+    <hr/>
+    <div style="text-align: justify;display: inline-block; width: 100%;">
+      <a class="title" href="https://github.com/mwenge" target="_blank">GITHUB</a> &nbsp;
+      <a class="title" href="/contact/index.html">EMAIL</a> &nbsp;
+      <a class="title" href="https://mastodon.social/@mwenge" target="_blank">SOCIAL</a> &nbsp;
+      <a class="title" href="https://paypal.me/hoganrobert" target="_blank">DONATE</a>
+    </div>
+  </div>
+</center>
+<br><br>
+<!-- Blog entry starts here -->
+<div style="margin-bottom: 2ch;text-transform: none;">
+  Jan 19, 2024
+</div>
+<div class='heading'>
+  PSYCHEDELIA II
+</div>
+<hr/>
+<p>
+While working on <a href="https://mwenge.github.io/psypixels" target="_blank">'psychedelia syndrome'</a> I finally disassembled 
+the <a href="https://github.com/mwenge/batalyx/blob/master/src/psychedelia.asm" target="_blank">Psychedelia sub-game</a> in Batalyx. Eventually I'll fill out
+a chapter in 'psychedelia syndrome' on how it evolved from the <a href="https://github.com/mwenge/psychedelia" target="_blank">original Psychedelia release</a>,
+but toying with the sub-game, which is really just a glorified pause-mode, gave me an idea of how
+Psychedelia might be turned into an actual game.
+</p>
+<p>
+There isn't a whole lot of point in going to the trouble of disassembling C64 binaries
+<a href="https://mwenge.github.io/blog/gridnes.html" target="_blank">if you can't have a bit of fun while you're at it.</a>
+The Batalyx sub-game is an ideal little base for building something new on. It
+contains a slightly modified version of the core from the 1984 original with
+nearly all of the knobs and dials stripped out, so developing a game around it
+involves a lot more adding of code than deleting.
+</p>
+<div class='heading'>
+MY BRIGHT IDEA
+</div>
+<hr/>
+<p>
+My modest little idea is to give the player a simple objective: reach every part of the screen
+with the assigned pattern. They receive points for every tile they fill and lose points every
+time the fill the same tile more than once. If you click on the frame below, you should be able
+to give it a quick go, using <code>CTRL</code> to fire and the arrow keys for moving around. If
+that doesn't work for you, you
+<a href="https://mwenge.github.io/psyII/bin" target="_blank">can try playing it in a new tab.</a> 
+</p>
+<p>
+<iframe src="https://mwenge.github.io/psyII/bin" frameBorder="0" style="width: 100%; height: 70vh; margin: 0 auto; display:block;"></iframe>
+<span style="text-align: center; display: block; margin-bottom: 2ch;"><i><small>Look at it in all its glory..</small></i></span>
+</p>
+<p>
+The game is essentially restful: there is no dying or losing. You never get bumped back to Level 1
+again - the only way is forward, as slowly or as quickly as you please.
+ You can lose points sure, but you really would have to zone out completely to find yourself
+reduced back to zero. Perhaps that's a different challenge: get as far as you can with as few points
+as possible!
+</p>
+<p>
+If you're interested in what the source code for such a game looks like,
+ <a href="https://github.com/mwenge/psyII" target="_blank"> you can take a look at it here.</a> 
+
+</p>
+<div class='heading'>
+  SCROLLING THE BACKGROUND
+</div>
+<hr/>
+<p>
+You may have noticed that the unfilled background scrolls away beneath the filled tiles. This is a nice
+little effect stolen from <a href="https://github.com/mwenge/gridrunner" target="_blank">Gridrunner.</a>
+This is what the routine looks like:
+</p>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">;-------------------------------------------------------------------------</span>
+<span style="color: #888888">; PerformRollingGridAnimation                                             </span>
+<span style="color: #888888">;-------------------------------------------------------------------------</span>
+PerformRollingGridAnimation
+        <span style="color: #008800; font-weight: bold">INC</span> frameControlCounter
+        <span style="color: #008800; font-weight: bold">LDA</span> frameControlCounter
+        <span style="color: #008800; font-weight: bold">AND</span> #<span style="color: #005588; font-weight: bold">$01</span>
+        <span style="color: #008800; font-weight: bold">BEQ</span> ScrollGrid
+        <span style="color: #008800; font-weight: bold">RTS</span>
+
+ScrollGrid
+        <span style="color: #008800; font-weight: bold">LDA</span> unpaintedGrid <span style="color: #333333">+</span> <span style="color: #005588; font-weight: bold">$0007</span>
+        <span style="color: #008800; font-weight: bold">STA</span> rollingGridPreviousChar
+        <span style="color: #008800; font-weight: bold">LDX</span> #<span style="color: #005588; font-weight: bold">$07</span>
+_Loop   <span style="color: #008800; font-weight: bold">LDA</span> unpaintedGrid <span style="color: #333333">-</span> <span style="color: #005588; font-weight: bold">$0001</span>,X
+        <span style="color: #008800; font-weight: bold">STA</span> unpaintedGrid,X
+        <span style="color: #008800; font-weight: bold">DEX</span>
+        <span style="color: #008800; font-weight: bold">BNE</span> _Loop
+
+        <span style="color: #008800; font-weight: bold">LDA</span> rollingGridPreviousChar
+        <span style="color: #008800; font-weight: bold">STA</span> unpaintedGrid
+
+        <span style="color: #008800; font-weight: bold">RTS</span>
+</pre></div>
+<br>
+<p>
+<code>unpaintedGrid</code> refers to this chap, our 8-byte definition of the character used to
+display the background:
+</p>
+
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">unpaintedGrid                                                                          
+        <span style="color: #003388; font-weight: bold">.BYTE</span> <span style="color: #005588; font-weight: bold">$10</span>,<span style="color: #005588; font-weight: bold">$00</span>,<span style="color: #005588; font-weight: bold">$00</span>,<span style="color: #005588; font-weight: bold">$82</span>,<span style="color: #005588; font-weight: bold">$00</span>,<span style="color: #005588; font-weight: bold">$00</span>,<span style="color: #005588; font-weight: bold">$10</span>,<span style="color: #005588; font-weight: bold">$00</span>   <span style="color: #888888">;.BYTE $10,$00,$10,$BA,$10,$00,$10,$00 </span>
+                                                <span style="color: #888888">; CHARACTER $83                        </span>
+                                                <span style="color: #888888">; 00010000      *                      </span>
+                                                <span style="color: #888888">; 00000000                             </span>
+                                                <span style="color: #888888">; 00010000                             </span>
+                                                <span style="color: #888888">; 10111010   *     *                   </span>
+                                                <span style="color: #888888">; 00010000                             </span>
+                                                <span style="color: #888888">; 00000000                             </span>
+                                                <span style="color: #888888">; 00010000      *                      </span>
+                                                <span style="color: #888888">; 00000000                             </span>
+</pre></div>
+<br>
+<p>
+As you can see the trick involves rotating the bytes around one byte at a time. We call this little routine
+once every time just before the screen is painted (the screen is painted 60 times a second, or 50 times
+a second if you're in Europe). We manage this by setting a single interrupt in the Raster Interrupt
+feature in the C64 and doing both this bit of business and checking for joystick input while we're at it.
+</p>
+<p>
+There are three little routines below. The first one, <code>SetUpInterrupts</code> sets up our interrupt.
+It tells the C64 to call <code>TitleScreenInterruptHandler</code> whenever it is about to paint a line
+or lines on the screen that we specify. We specify these lines in <code>UpdateRasterPosition</code>.
+In here we specify the 256th line (<code>LDA $FF</code>) by storing <code>$FF</code> in register
+<code>$D012</code>. 
+
+</p>
+
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">;---------------------------------------------------------------</span>
+<span style="color: #888888">; SetUpInterrupts                                               </span>
+<span style="color: #888888">;---------------------------------------------------------------</span>
+SetUpInterrupts                                                 
+        <span style="color: #008800; font-weight: bold">LDA</span> #<span style="color: #005588; font-weight: bold">$7F</span>                                                
+        <span style="color: #008800; font-weight: bold">STA</span> <span style="color: #005588; font-weight: bold">$DC0D</span>    <span style="color: #888888">;CIA1: CIA Interrupt Control Register      </span>
+        <span style="color: #008800; font-weight: bold">LDA</span> #<span style="color: #333333">&lt;</span>TitleScreenInterruptHandler                       
+        <span style="color: #008800; font-weight: bold">STA</span> <span style="color: #005588; font-weight: bold">$0314</span>    <span style="color: #888888">;IRQ                                       </span>
+        <span style="color: #008800; font-weight: bold">LDA</span> #<span style="color: #333333">&gt;</span>TitleScreenInterruptHandler                       
+        <span style="color: #008800; font-weight: bold">STA</span> <span style="color: #005588; font-weight: bold">$0315</span>    <span style="color: #888888">;IRQ                                       </span>
+                                                                
+        <span style="color: #008800; font-weight: bold">JSR</span> UpdateRasterPosition                                
+                                                                
+        <span style="color: #008800; font-weight: bold">LDA</span> #<span style="color: #005588; font-weight: bold">$01</span>                                                
+        <span style="color: #008800; font-weight: bold">STA</span> <span style="color: #005588; font-weight: bold">$D01A</span>    <span style="color: #888888">;VIC Interrupt Mask Register (IMR)         </span>
+        <span style="color: #008800; font-weight: bold">RTS</span>                                                     
+                                                                
+<span style="color: #888888">;---------------------------------------------------------------</span>
+<span style="color: #888888">; UpdateRasterPosition                                          </span>
+<span style="color: #888888">;---------------------------------------------------------------</span>
+UpdateRasterPosition                                            
+        <span style="color: #008800; font-weight: bold">LDA</span> <span style="color: #005588; font-weight: bold">$D011</span>    <span style="color: #888888">;VIC Control Register 1                    </span>
+        <span style="color: #008800; font-weight: bold">AND</span> #<span style="color: #005588; font-weight: bold">$7F</span>                                                
+        <span style="color: #008800; font-weight: bold">STA</span> <span style="color: #005588; font-weight: bold">$D011</span>    <span style="color: #888888">;VIC Control Register 1                    </span>
+                                                                
+        <span style="color: #888888">; Set the position of the next interrupt                </span>
+        <span style="color: #008800; font-weight: bold">LDA</span> #<span style="color: #005588; font-weight: bold">$FF</span>                                                
+        <span style="color: #008800; font-weight: bold">STA</span> <span style="color: #005588; font-weight: bold">$D012</span>    <span style="color: #888888">;Raster Position                           </span>
+                                                                
+        <span style="color: #888888">; Acknowledge the interrupt                             </span>
+        <span style="color: #008800; font-weight: bold">LDA</span> #<span style="color: #005588; font-weight: bold">$01</span>                                                
+        <span style="color: #008800; font-weight: bold">STA</span> <span style="color: #005588; font-weight: bold">$D019</span>    <span style="color: #888888">;VIC Interrupt Request Register (IRR)      </span>
+        <span style="color: #008800; font-weight: bold">RTS</span>                                                     
+</pre></div>
+<br>
+<p>
+Finally we have our little routine which is called every time line 256 on the screen is about to be painted
+roughly 50 times every second. This is where we call <code>PerformRollingGridAnimation</code>:
+</p>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">;---------------------------------------------------------------</span>
+<span style="color: #888888">; TitleScreenInterruptHandler                                   </span>
+<span style="color: #888888">;---------------------------------------------------------------</span>
+TitleScreenInterruptHandler                                     
+        <span style="color: #008800; font-weight: bold">LDA</span> <span style="color: #005588; font-weight: bold">$D019</span>    <span style="color: #888888">;VIC Interrupt Request Register (IRR)      </span>
+        <span style="color: #008800; font-weight: bold">AND</span> #<span style="color: #005588; font-weight: bold">$01</span>                                                
+        <span style="color: #008800; font-weight: bold">BNE</span> RasterPositionMatchesRequestedInterrupt             
+        <span style="color: #008800; font-weight: bold">JMP</span> <span style="color: #005588; font-weight: bold">$EA31</span>                                               
+        <span style="color: #888888">; Returns                                               </span>
+                                                                
+RasterPositionMatchesRequestedInterrupt                         
+                                                                
+        <span style="color: #008800; font-weight: bold">JSR</span> CheckJoystickAndUpdateCursor                        
+        <span style="color: #008800; font-weight: bold">JSR</span> PerformRollingGridAnimation                         
+        <span style="color: #008800; font-weight: bold">JSR</span> <span style="color: #005588; font-weight: bold">$FF9F</span> <span style="color: #888888">;$FF9F - scan keyboard                        </span>
+                                                                
+        <span style="color: #008800; font-weight: bold">JSR</span> UpdateRasterPosition                                
+                                                                
+        <span style="color: #888888">; Sounds are turned off for now                         </span>
+        <span style="color: #888888">;JSR PlaySoundEffects                                   </span>
+                                                                
+ReturnFromInterrupt                                             
+        <span style="color: #008800; font-weight: bold">PLA</span>                                                     
+        <span style="color: #008800; font-weight: bold">TAY</span>                                                     
+        <span style="color: #008800; font-weight: bold">PLA</span>                                                     
+        <span style="color: #008800; font-weight: bold">TAX</span>                                                     
+        <span style="color: #008800; font-weight: bold">PLA</span>                                                     
+        <span style="color: #008800; font-weight: bold">RTI</span>                                                     
+</pre></div>
+
+
+<!-- Footnotes start here -->
+<!--
+<style type='text/css'>td.ref {  padding-bottom: 0ch; width:0;}</style>
+<div class='heading'>References</div><hr/><p id='paperbox' style='text-align:left;'>
+<table>
+  <tbody style='vertical-align: top;'>
+    <tr>
+      <td class='ref' style='width:1ch;'><a name="footnote_1"></a><a href="#back_1">^</a></td>
+      <td  class='ref' style='width:4ch;'> [1]</td>
+      <td style='width:100%;text-align:left;' class='ref'><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627591">Firefox Bugzilla: Preload dlls on windows</a></td>
+    </tr>
+    <tr>
+      <td class='ref' style='width:1ch;'><a name="footnote_2"></a><a href="#back_2">^</a></td>
+      <td  class='ref' style='width:4ch;'> [2]</td>
+      <td style='width:100%;text-align:left;' class='ref'><a href="https://binary.ninja/">Binary Ninja</a></td>
+    </tr>
+    <tr>
+      <td class='ref' style='width:1ch;'><a name="footnote_3"></a><a href="#back_3">^</a></td>
+      <td  class='ref' style='width:4ch;'> [3]</td>
+      <td style='width:100%;text-align:left;' class='ref'><a href="https://gist.github.com/mauricio/2310831">java-launcher.c</a></td>
+    </tr>
+    <tr>
+      <td class='ref' style='width:1ch;'><a name="footnote_4"></a><a href="#back_4">^</a></td>
+      <td  class='ref' style='width:4ch;'> [4]</td>
+      <td style='width:100%;text-align:left;' class='ref'><a href="https://natanyellin.com/posts/life-and-death-of-a-linux-process"> Life and Death of a Linux Process</a></td>
+    </tr>
+    <tr>
+      <td class='ref' style='width:1ch;'><a name="footnote_5"></a><a href="#back_5">^</a></td>
+      <td  class='ref' style='width:4ch;'> [5]</td>
+      <td style='width:100%;text-align:left;' class='ref'><a href="https://natanyellin.com/posts/using-linux-audit-to-track-processes"> Using the Linux Audit API to Track Processes</a></td>
+    </tr>
+    <tr>
+      <td class='ref' style='width:1ch;'><a name="footnote_6"></a><a href="#back_6">^</a></td>
+      <td  class='ref' style='width:4ch;'> [6]</td>
+      <td style='width:100%;text-align:left;' class='ref'><a href="https://natanyellin.com/posts/buggy-netlink-process-connectors"> When Netlink Process Connectors Don’t Process</a></td>
+    </tr>
+    <tr>
+      <td class='ref' style='width:1ch;'><a name="footnote_7"></a><a href="#back_7">^</a></td>
+      <td  class='ref' style='width:4ch;'> [7]</td>
+      <td style='width:100%;text-align:left;' class='ref'><a href="https://natanyellin.com/posts/tracking-running-processes-on-linux"> The Difficulties of Tracking Running Processes on Linux</a></td>
+    </tr>
+    <tr>
+      <td class='ref' style='width:1ch;'><a name="footnote_8"></a><a href="#back_8">^</a></td>
+      <td  class='ref' style='width:4ch;'> [8]</td>
+      <td style='width:100%;text-align:left;' class='ref'><a href="https://natanyellin.com/posts/understanding-netlink-process-connector-output"> Understanding Netlink Process Connector Output</a></td>
+    </tr>
+  </tbody>
+</table>
+</p> <hr>
+-->
+ <center>*
