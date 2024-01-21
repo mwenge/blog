@@ -1,0 +1,176 @@
+<!doctype html>
+<meta charset="utf-8">
+<head>
+  <link rel="alternate" type="application/rss+xml"  title="RSS Feed for mwenge's blog" href="/rss.xml" />
+  <style type="text/css">
+
+    @font-face {
+      font-family: 'fabfont';
+      src: url('/font/DejaVuSansMono.woff2');
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: 'fabfont';
+      src: url('/font/DejaVuSansMono-Bold.woff2');
+      font-weight: bold;
+      font-display: block;
+    }
+
+    * {
+       font-size: 16px;
+    }
+
+    html {
+      font-family: fabfont,  monospace;
+      max-width: 900px;  /* For Desktop PC (see @media for Tablets/Phones) */
+      padding-left: 2%;
+      padding-right: 3%;
+      margin: 0 auto;
+      background: #F5F5F0;
+  	} 
+    
+  	a {
+      color: black;
+      font-weight: bold;
+    }
+
+    img {
+      border: none; 
+    }
+
+    p {
+      margin-top: 0px;
+      text-align: justify;
+    }
+    sup {
+      vertical-align: 0.3em;
+      font-size: 0.65em;
+    }   
+
+    pre {
+      font-family: fabfont, monospace;
+      background-color: white; 
+      border: 1px solid Black; 
+      padding-left: 2%;
+      padding-top: 1ch;
+      padding-bottom: 1ch;
+      /* Only take care of X overflow since this is the only part that can be too wide.
+         The Y axis will never overflow.
+      */
+      overflow: hidden;
+    }
+
+    div.heading {
+      font-weight: bold;      
+      text-transform: uppercase;
+      margin-top: 4ch;
+    }
+
+    /** {
+      font-size: 16px;
+    }*/
+    @media (max-width: 500px) { /* For small screen decices */
+      * {
+        font-size: 12px; 
+      }
+    }   
+    .title {
+      text-decoration: none;
+    }
+
+    img.pixel, canvas.pixel {
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
+    }
+
+    blockquote { 
+    background-color: #f3f3f3;
+    border: dashed 1px grey; 
+    width: 97.5%; 
+    font-style: italic; 
+    text-align: justify;
+
+    padding: 1ch; 
+    padding-top: 2ch; 
+    padding-bottom: 2ch;     
+    
+    margin : 0ch; 
+    margin-bottom: 2ch; 
+    margin-top: 0ch;
+  }
+
+  blockquote div {
+    text-transform: none;
+    text-align: right;
+    width: 100%;
+  }
+
+  code {
+    /*font-size: 110%;*/
+    font-weight: bold;
+    background-color: #e1e1e1;
+    border-radius: 0.5ch;
+    padding-left: 0.3ch;
+    padding-right: 0.3ch;
+  }
+
+  </style>
+  <style type="text/css">
+      .red {
+          color:red;
+      }
+      pre {
+          overflow: auto;
+      }
+  </style>
+  <!-- Update the title here -->
+  <title>llamasource</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=12.0, minimum-scale=1.0, user-scalable=yes">
+</head>  
+<body>
+<br>
+<center>
+  <div style="display: inline-block; vertical-align:middle;">
+    <a href="index.html" class="title"><b>MWENGE'S WEBSITE</b><br></a>
+    <hr/>
+    <div style="text-align: justify;display: inline-block; width: 100%;">
+      <a class="title" href="https://github.com/mwenge" target="_blank">GITHUB</a> &nbsp;
+      <a class="title" href="contact/index.html">EMAIL</a> &nbsp;
+      <a class="title" href="https://mastodon.social/@mwenge" target="_blank">SOCIAL</a> &nbsp;
+      <a class="title" href="https://paypal.me/hoganrobert" target="_blank">DONATE</a>
+    </div>
+  </div>
+</center>
+<br><br>
+<!-- Blog entry starts here -->
+<div style="margin-bottom: 2ch;text-transform: none;">
+  September 23, 2019
+</div>
+<div class='heading'>
+  LLAMASOURCE
+</div>
+<hr/>
+<p>
+<a href="https://github.com/mwenge/llamaSource" target="_blank">One by one I'm disassembling some games and programs</a>  published for the Commodore 64 and other platforms by Llamasoft (i.e. Jeff Minter).
+</p>
+<p>
+
+For some games, such as Attack of the Mutant Camels on Konix and Tempest 2000 for the Atari Jaguar, the original source code is already available so all I have done is collect it in a form that allows you to compile and build the original game with modern Linux build toolchains.
+</p>
+<p>
+
+In the cases where the source code has to be reverse engineered the process is often relatively straightforward. I can simply disassemble the code (with a tool such as Regenerator, split out the characterset and sprite data from the game logic, and recompile to a binary that matches exactly (byte for byte) the original game file. After that, I can start labelling and commenting the code to make explicit the workings of the game.
+</p>
+<p>
+
+In other cases, the task isn't so trivial. Larger games such as Batalyx and Iridis Alpha used compression and copy-protection software so it is much harder, and may even be impossible, to produce a disassembled version that compiles a target which will match the original prg file. For these guys, I've had to work from a snapshot of the game while it's running and just accept that the binary I end up compiling will not be a bytewise match, and may have bugs. If I don't find a way of reverse-engineering the compression and copy-protection that's what I will end up doing, for now.
+</p>
+<p>
+
+All of the disassembled games below are a work in progress. At a minimum all compile and run. They're listed in descending order of completeness so if you're looking for further reading start with Iridis Alpha and work your way down. The work that remains in all cases is to continue improving the comments in the code and figuring out the operation of the routines while assigning labels and variable names that are meaningful. For now, though, my focus is on completing a first pass on as many games as possible.
+</p>
+<p>
+</p>
+ <center>*
